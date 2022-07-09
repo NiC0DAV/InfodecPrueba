@@ -39,7 +39,6 @@ export class AvgRegisterComponent implements OnInit {
 
     );
 
-    // form.reset();
   }
 
 }
