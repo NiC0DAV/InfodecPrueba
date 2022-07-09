@@ -1,0 +1,54 @@
+<div class="container">
+    <main>
+        <h1 class="text-center">Crear Usuarios</h1>
+        <div class="container mx-auto mt-3">
+            <div class="content">
+                <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+                    <div class="user-details">
+                        <div class="input-box">
+                            <span class="details">Nombres</span>
+                            <input type="text" placeholder="Ingrese su nombre" name="nombre" type="text" id="nombre" #nombre="ngModel" [(ngModel)] = "promedio.nombre" required pattern="[a-zA-Z ]+">
+                            <small *ngIf="!nombre.valid && nombre.touched" class="invalid-feedback d-block">
+                                El nombre no es valido
+                            </small>
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Parcial 1</span>
+                            <input type="number" name="parcial_uno" id="parcial_uno" #parcial_uno="ngModel" [(ngModel)] = "promedio.parcial_uno" pattern="^[1-5]+([,.][1-5]+)?$" maxlength="1" placeholder="parcial_uno"  required>
+                            <small *ngIf="!parcial_uno.valid && parcial_uno.touched" class="invalid-feedback d-block">
+                                El valor ingresado no es valido
+                            </small>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Parcial 2</span>
+                            <input type="number" name="parcial_dos" id="parcial_dos" #parcial_dos="ngModel" [(ngModel)] = "promedio.parcial_dos" pattern="^[1-5]+([,.][1-5]+)?$" maxlength="1" placeholder="parcial_dos"  required>
+                            <small *ngIf="!parcial_dos.valid && parcial_dos.touched" class="invalid-feedback d-block">
+                                El valor ingresado no es valido
+                            </small>
+                        </div>
+
+                        <div class="input-box">
+                            <span class="details">Parcial 3</span>
+                            <input type="number" name="parcial_tres" id="parcial_tres" #parcial_tres="ngModel" [(ngModel)] = "promedio.parcial_tres" pattern="^[1-5]+([,.][1-5]+)?$" maxlength="1" placeholder="parcial_tres"  required>
+                            <small *ngIf="!parcial_tres.valid && parcial_tres.touched" class="invalid-feedback d-block">
+                                El valor ingresado no es valido
+                            </small>
+                        </div>
+                    </div>
+                    <div class="alert alert-success mb-2 text-center" *ngIf="status == 'success'">
+                        Promedio registrado exitosamente <a [routerLink]="'/'">Regresar al Inicio</a>
+                    </div>
+                    <div class="alert alert-danger mb-2 text-center" *ngIf="status == 'error'">
+                        Hubo un error registrando el promedio, intentelo de nuevo <a [routerLink]="'/'">Regresar al Inicio</a>
+                    </div>
+                    <h1 class="text-center">Promedio: 3.5</h1>
+                    <div class="button">
+                        <input type="submit" value="Registrar Promedio">
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+    </main>
+</div>
